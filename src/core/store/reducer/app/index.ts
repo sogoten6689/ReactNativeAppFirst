@@ -1,4 +1,4 @@
-// import { LanguageEnum } from '@src/core/libs/constants';
+import { LanguageEnum } from '@src/core/libs/constants';
 import {
   RootAppState,
   AppActionTypes,
@@ -10,7 +10,7 @@ import {
 const initialState: RootAppState = {
   visibleSpinner: false,
   alertPresent: false,
-  languageCode: '',
+  languageCode: LanguageEnum.VietNamese,
 };
 
 export const appReducer = (
