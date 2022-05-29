@@ -10,7 +10,7 @@ export type HomeProps = ComponentProps;
 export const Home: React.FunctionComponent<HomeProps> = ({}) => {
   return (
     <ViewContainer>
-      <Text style={styles.title}>{'hello'}</Text>
+      <Text style={styles.title}>{'hello2111111111'}</Text>
     </ViewContainer>
   );
 };

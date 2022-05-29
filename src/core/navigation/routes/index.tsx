@@ -9,7 +9,7 @@ import {
 } from 'react-navigation-stack';
 
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { SplashContainer } from '@src/containers/splash/splash.container';
+// import { SplashContainer } from '@src/containers/splash/splash.container';
 import { HomeContainer } from '@src/containers/app/home/home.container';
 
 const AppNavigator: NavigationContainer = createStackNavigator(
@@ -41,7 +41,7 @@ const createAppRouter = (container: any): NavigationContainer => {
   return createAppContainer(
     createSwitchNavigator(
       {
-        ['splash']: SplashContainer,
+        // ['splash']: SplashContainer,
         ['appDrawer']: container,
       },
       { initialRouteName: 'splash' },

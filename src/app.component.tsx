@@ -14,7 +14,8 @@ import { Provider } from 'react-redux';
 // Nó sẽ delay quá trình render UI app của bạn cho đến khi state đã được lấy ra và lưu trở lại vào Redux.
 import { PersistGate } from 'redux-persist/integration/react';
 import { DynamicStatusBar, Spinner } from './components';
-import { Router } from './core/navigation/routers';
+import { Router } from './core/navigation/routes';
+// import { Router } from './core/navigation/routers';
 import { persistor, store } from './core/store';
 
 const App = () => {
@@ -33,8 +34,8 @@ const App = () => {
           <DynamicStatusBar barStyle={'dark-content'} />
           {/* loading vòng vòng khi call api */}
           <Spinner />
-          <Router />
-          <Text>{'hello'}</Text>
+          {/* <Router /> */}
+          <Text style={styles.sectionTitle}>{'hello'}</Text>
         </PersistGate>
       </Provider>
     </RootSiblingParent>
