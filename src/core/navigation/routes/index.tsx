@@ -8,13 +8,15 @@ import {
   StackViewTransitionConfigs,
 } from 'react-navigation-stack';
 
-import { createDrawerNavigator } from 'react-navigation-drawer';
-// import { SplashContainer } from '@src/containers/splash/splash.container';
+// import { createDrawerNavigator } from 'react-navigation-drawer';
+import { SplashContainer } from '@src/containers/splash/splash.container';
 import { HomeContainer } from '@src/containers/app/home/home.container';
+import { ProfileContainer } from '@src/containers/app/profile/profile.container';
 
 const AppNavigator: NavigationContainer = createStackNavigator(
   {
     ['home']: HomeContainer,
+    ['Profile']: ProfileContainer,
   },
   {
     headerMode: 'screen',
@@ -25,23 +27,15 @@ const AppNavigator: NavigationContainer = createStackNavigator(
   },
 );
 
-const AppDrawerNavigator: NavigationContainer = createDrawerNavigator(
-  {
-    ['app']: AppNavigator,
-  },
-  {
-    //   contentComponent: (props) => <MenuSideBarContainer {...props} />,
-    //   drawerPosition: 'left',
-    //   drawerWidth: pxToPercentage(300),
-    //   overlayColor: '1',
-  },
-);
+// const AppDrawerNavigator: NavigationContainer = createDrawerNavigator({
+//   ['app']: AppNavigator,
+// });
 
 const createAppRouter = (container: any): NavigationContainer => {
   return createAppContainer(
     createSwitchNavigator(
       {
-        // ['splash']: SplashContainer,
+        ['splash']: SplashContainer,
         ['appDrawer']: container,
       },
       { initialRouteName: 'splash' },
@@ -49,4 +43,4 @@ const createAppRouter = (container: any): NavigationContainer => {
   );
 };
 
-export const Router: NavigationContainer = createAppRouter(AppDrawerNavigator);
+export const Router: NavigationContainer = createAppRouter(AppNavigator);

@@ -19,7 +19,7 @@ export const SplashContainer: React.FunctionComponent<
 
     props.navigation.navigate({
       key: navigationKey,
-      routeName: 'app',
+      routeName: 'appDrawer',
     });
   };
 

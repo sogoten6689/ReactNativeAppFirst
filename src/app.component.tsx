@@ -1,6 +1,4 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
-
 // 1. Thư viện này có thể thêm phần tử bên trên thành phần ứng dụng gốc được AppRegistry.registerComponent đăng ký.
 // This library can add element above the root app component registered by AppRegistry.registerComponent.
 // có nghĩa là chồng lên trên á
@@ -15,6 +13,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { DynamicStatusBar, Spinner } from './components';
 import { Router } from './core/navigation/routes';
+import { NavigationService } from './core/navigation/service';
 // import { Router } from './core/navigation/routers';
 import { persistor, store } from './core/store';
 
@@ -34,31 +33,17 @@ const App = () => {
           <DynamicStatusBar barStyle={'dark-content'} />
           {/* loading vòng vòng khi call api */}
           <Spinner />
-          {/* <Router /> */}
-          <Text style={styles.sectionTitle}>{'hello'}</Text>
+          <Router
+            ref={(navigatorRef) => {
+              if (navigatorRef) {
+                NavigationService.setTopLevelNavigator(navigatorRef);
+              }
+            }}
+          />
         </PersistGate>
       </Provider>
     </RootSiblingParent>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
